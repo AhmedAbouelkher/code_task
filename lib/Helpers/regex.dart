@@ -18,5 +18,5 @@ bool isValidEmail(String? value) {
 /// ```
 bool isValidPassword(String? value) {
   if (value == null) return false;
-  return RegExp(r'^.{6,}$').hasMatch(value);
+  return RegExp(r'^(?=.*[a-z])(?=.*?[0-9]).{6,}$').hasMatch(value);
 }

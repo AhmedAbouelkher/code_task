@@ -10,13 +10,11 @@ class NetworkConstants {
   static const String fetchUserMedicalDiagnosis = _baseAPI + "35120fb2-1183-4b6e-af59-336dab736a78";
 }
 
-///Checks weather the network call is successful or not.
-bool isValidResponse(int statusCode) {
-  return statusCode == 200;
-}
-
-dynamic validateResponse(http.Response response) {
+///Validating newtork request and retuns `0` if successful, otherwise `throws` and exception.
+int validateResponse(http.Response response) {
   switch (response.statusCode) {
+    case 200:
+      return 0;
     case 400:
       throw BadRequestException(response.body.toString());
     case 401:

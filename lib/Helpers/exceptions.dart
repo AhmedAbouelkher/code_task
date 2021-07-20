@@ -10,15 +10,15 @@ class AppException implements Exception {
 }
 
 class FetchDataException extends AppException {
-  FetchDataException([String? details]) : super("Error During Communication.", details);
+  const FetchDataException([String? details]) : super("Error During Communication.", details);
 }
 
 class BadRequestException extends AppException {
-  BadRequestException([details]) : super("Invalid Request.", details);
+  const BadRequestException([details]) : super("Invalid Request.", details);
 }
 
 class UnauthorisedException extends AppException {
-  UnauthorisedException([details]) : super("Unauthorised.", details);
+  const UnauthorisedException([details]) : super("Unauthorised.", details);
 }
 
 ///A Firebase auth exception indicats that the used password is invalid or can't be used.

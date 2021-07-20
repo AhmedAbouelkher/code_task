@@ -107,6 +107,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       decoration: InputDecoration(
                         hintText: "Enter your password",
                         labelText: "Password",
+                        helperMaxLines: 3,
+                        helperText: "At least 6 characters.\nAt least one lower case Character.\nAt least one digit.",
                       ),
                       validator: (password) {
                         if (!isValidPassword(password)) {

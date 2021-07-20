@@ -71,11 +71,8 @@ class UserDataAPIClient {
         "Accept": 'application/json',
       },
     );
-    if (isValidResponse(_response.statusCode)) {
-      //Decode incoming json.
-      return jsonDecode(_response.body);
-    } else {
-      validateResponse(_response);
-    }
+//Validating API response, if is invalid, an exception is thrown.
+    validateResponse(_response);
+    return jsonDecode(_response.body);
   }
 }
