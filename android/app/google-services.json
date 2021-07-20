@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1077908619477",
+    "project_id": "code-test-3bd2a",
+    "storage_bucket": "code-test-3bd2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077908619477:android:2f4b95538adc65ea35225c",
+        "android_client_info": {
+          "package_name": "com.code_task"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1077908619477-5fqpmt1uqgn0m50mbu5m8tc503b3ofev.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA73j8ogMAB2ySv9AgZf5kcQS48Zne6-r4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1077908619477-5fqpmt1uqgn0m50mbu5m8tc503b3ofev.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1077908619477-kk7t88dpmo14g564kd4q606squk70bam.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.codeTask"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
