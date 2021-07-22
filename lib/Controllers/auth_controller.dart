@@ -73,8 +73,8 @@ class AuthController extends ChangeNotifier {
   ///- `isValidEmail(String)`.
   ///
   Future<UserCredential?> loginUser(String email, String password) async {
-    assert(isValidPassword(password),
-        "You provided an invalid user password, password must has at least on character and its lenth > 6.");
+    // assert(isValidPassword(password),
+    //     "You provided an invalid user password, password must has at least on character and its lenth > 6.");
     assert(isValidEmail(email), "You should provide a valid user E-mail.");
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(

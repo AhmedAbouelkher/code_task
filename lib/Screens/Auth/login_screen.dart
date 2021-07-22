@@ -111,9 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: "Password",
                       ),
                       validator: (password) {
-                        if (!isValidPassword(password)) {
-                          return "Please, Type a valid password";
-                        }
+                        // if (!isValidPassword(password)) {
+                        //   return "Please, Type a valid password";
+                        // }
                         return null;
                       },
                     ),
