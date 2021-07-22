@@ -48,3 +48,13 @@ class EmailAlreadyUsedException extends AppException {
   @override
   String toString() => 'EmailAlreadyUsedException(message: $message)';
 }
+
+///Throwed when the developer asks for [PreferenceUtils] method before intializing the [SharedPreferences] package instance.
+class PreferenceUtilsNotIntializedException extends AppException {
+  const PreferenceUtilsNotIntializedException({
+    String? message,
+  }) : super(message ?? "Did you foreget to call `PreferenceUtils.init()` in main?");
+}
+
+///Throwes when you try to save unsupported DataType into [SharedPreferences]
+class NotSupportedTypeToSaveException extends AppException {}

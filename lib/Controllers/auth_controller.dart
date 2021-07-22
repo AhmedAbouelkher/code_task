@@ -1,10 +1,10 @@
+import 'package:code_task/Helpers/PreferencesUtils/preferences_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:code_task/Helpers/exceptions.dart';
 import 'package:code_task/Helpers/regex.dart';
-import 'package:code_task/Helpers/shared_prefs_utils.dart';
 
 ///Client's Username DB ID key.
 const kUsernameKey = "user_name_key";

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'Controllers/controllers.dart';
-import 'Helpers/shared_prefs_utils.dart';
+import 'Helpers/PreferencesUtils/preferences_utils.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
       ],
       child: MaterialApp(
         title: 'Code Test',
-        home: _isLoggedIn ? HomeScreen() : IntroScreen(),
+        home: _isLoggedIn ? HomeScreen() : LoginScreen(),
       ),
     );
   }

@@ -4,13 +4,21 @@ import 'package:code_task/Helpers/regex.dart';
 
 void main() {
   group("Regex Register form validation Test", () {
-    test("E-mail address", () {
-      final validEmail = "ahmed@mail.com";
-      final invalidEmail = "ahmed@mail";
+    group("E-mail Address", () {
+      test("Valid E-mail", () {
+        final validEmail = "username@mail.com";
+        expect(isValidEmail(validEmail), isTrue);
+      });
 
-      expect(isValidEmail(validEmail), true);
+      test("Invalid with Domain", () {
+        final invalidEmail = "username@mail";
+        expect(isValidEmail(invalidEmail), isFalse);
+      });
 
-      expect(isValidEmail(invalidEmail), false);
+      test("Invalid with Username", () {
+        final invalidEmail = "username";
+        expect(isValidEmail(invalidEmail), isFalse);
+      });
     });
 
     group("Password", () {
@@ -19,23 +27,23 @@ void main() {
       //- at least one digit.
       //- at least one lower case char.
       test("Valid password with 2 lower case characters and 5 digits", () {
-        expect(isValidPassword("am12345"), true);
+        expect(isValidPassword("am12345"), isTrue);
       });
 
       test("Valid password with at least one lower case character", () {
-        expect(isValidPassword("a123456"), true);
+        expect(isValidPassword("a123456"), isTrue);
       });
 
       test("Invlaid password with no lower case characters", () {
-        expect(isValidPassword("123456"), false);
+        expect(isValidPassword("123456"), isFalse);
       });
 
       test("Invlaid password with no digits", () {
-        expect(isValidPassword("hellothere"), false);
+        expect(isValidPassword("hellothere"), isFalse);
       });
 
       test("Invlaid password with a lenth lower than 6 characters", () {
-        expect(isValidPassword("hello"), false);
+        expect(isValidPassword("hello"), isFalse);
       });
     });
   });

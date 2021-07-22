@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:code_task/Screens/Auth/intro_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -57,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
       if (_result == null) return;
       await AuthController.get(context).logout();
       log("USER LOGGED OUT");
+      Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreen()));
     } on AppException catch (e) {
       showErrorSnackBar(context, exception: e);
     } catch (e) {

@@ -22,7 +22,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  faker: ^2.0.0
+  mockito: ^5.0.12
 
 flutter:
 

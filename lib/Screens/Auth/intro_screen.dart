@@ -12,14 +12,14 @@ import 'package:code_task/Widgets/widgets.dart';
 import '../home_screen.dart';
 import 'register.dart';
 
-class IntroScreen extends StatefulWidget {
-  const IntroScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  _IntroScreenState createState() => _IntroScreenState();
+  _LoginScreenState createState() => _LoginScreenState();
 }
 
-class _IntroScreenState extends State<IntroScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   late final TextEditingController _emailTextController;
   late final TextEditingController _passwordTextController;
   late final GlobalKey<FormState> _formKey;
