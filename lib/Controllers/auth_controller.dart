@@ -6,6 +6,14 @@ import 'package:provider/provider.dart';
 import 'package:code_task/Helpers/exceptions.dart';
 import 'package:code_task/Helpers/regex.dart';
 
+//TODO:
+abstract class AuthBase {
+  User get currentUser;
+  Future createUserWithEmailAndPassword(String email, String password);
+  Future signInWithEmailAndPassword(String email, String password);
+  Future signOut();
+}
+
 ///Client's Username DB ID key.
 const kUsernameKey = "user_name_key";
 
