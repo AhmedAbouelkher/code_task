@@ -103,7 +103,7 @@ void main() {
   });
 }
 
-class MockSharedPrefrences extends Mock implements BaseSharedPreferences {
+class MockSharedPrefrences extends BaseSharedPreferences {
   late Map<String, Object> _hashMap;
   bool hasBeenInitilzed = false;
 

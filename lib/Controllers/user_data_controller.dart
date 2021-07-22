@@ -71,7 +71,8 @@ class UserDataAPIClient {
         "Accept": 'application/json',
       },
     );
-//Validating API response, if is invalid, an exception is thrown.
+
+    //Validating API response, if is invalid, an exception is thrown.
     validateResponse(_response);
     return jsonDecode(_response.body);
   }

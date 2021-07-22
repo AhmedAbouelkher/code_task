@@ -10,6 +10,7 @@ export 'base_shared_preferences.dart';
 
 ///Acts as a wraper for [SharedPreferences] to make saving and geting saved value as easy as possible
 ///in addition of adding more cool feature like removing muliple values at once.
+///
 class PreferenceUtils {
   PreferenceUtils._();
   static BaseSharedPreferences? _preferences;

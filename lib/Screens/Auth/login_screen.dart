@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:code_task/Helpers/test_widgets_keys.dart';
 import 'package:flutter/material.dart';
 
 import 'package:code_task/Controllers/controllers.dart';
@@ -118,6 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     SizedBox(height: 20),
                     CustomButton(
+                      key: WidgetTestKeys.loginKey,
                       isLoading: _isLoading,
                       onPressed: _performLogin,
                       child: Text("Login"),

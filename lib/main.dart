@@ -1,4 +1,4 @@
-import 'package:code_task/Screens/Auth/intro_screen.dart';
+import 'package:code_task/Screens/Auth/login_screen.dart';
 import 'package:code_task/Screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
