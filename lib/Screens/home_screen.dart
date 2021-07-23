@@ -1,8 +1,8 @@
 import 'dart:developer';
 import 'dart:ui';
 
+import 'package:code_task/Helpers/time_helper.dart';
 import 'package:code_task/Screens/Auth/login_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:code_task/Controllers/controllers.dart';
@@ -73,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var timeOfTheDay = getTimeOfTheDay(DateTime.now());
     return Scaffold(
       appBar: AppBar(
         title: Text("Welcome Home"),
@@ -93,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SizedBox(height: 20),
-            Text("Good evening :)\n${_username?.email ?? "NULL EMAIL"}"),
+            Text("$timeOfTheDay\n${_username?.email ?? "NULL EMAIL"}"),
             SizedBox(height: 30),
             Selector<AuthController, String?>(
               selector: (_, controller) => controller.username,

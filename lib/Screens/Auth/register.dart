@@ -53,8 +53,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     final _password = _passwordTextController.text.trim();
     setState(() => _isLoading = true);
     try {
-      final _userCred = await AuthController.get(context).registerUser(_email, _password);
-      log("USER REGISTERD with ${_userCred?.user?.email ?? "NULL EMAIL"}");
+      final _user = await AuthController.get(context).registerUser(_email, _password);
+      log("USER REGISTERD with ${_user?.email ?? "NULL EMAIL"}");
 
       Navigator.pushAndRemoveUntil(
         context,

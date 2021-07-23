@@ -1,18 +1,14 @@
-import 'package:code_task/Helpers/PreferencesUtils/preferences_utils.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide User;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:code_task/Helpers/PreferencesUtils/preferences_utils.dart';
 import 'package:code_task/Helpers/exceptions.dart';
 import 'package:code_task/Helpers/regex.dart';
 
-//TODO:
-abstract class AuthBase {
-  User get currentUser;
-  Future createUserWithEmailAndPassword(String email, String password);
-  Future signInWithEmailAndPassword(String email, String password);
-  Future signOut();
-}
+import 'auth_base_controllers.dart';
+
+export 'auth_base_controllers.dart';
 
 ///Client's Username DB ID key.
 const kUsernameKey = "user_name_key";
@@ -31,7 +27,9 @@ class AuthController extends ChangeNotifier {
   static AuthController watch(BuildContext context) => context.watch<AuthController>();
 
   ///Returns an instance using the default [FirebaseApp].
-  final _auth = FirebaseAuth.instance;
+  final BaseAuth _auth;
+
+  AuthController({required BaseAuth auth}) : _auth = auth;
 
   //? Register user
   ///Registers an new user with his `email` and `password`.
@@ -46,16 +44,15 @@ class AuthController extends ChangeNotifier {
   ///- `isValidPassword(String)`.
   ///- `isValidEmail(String)`.
   ///
-  Future<UserCredential?> registerUser(String email, String password) async {
+  Future<User?> registerUser(String email, String password) async {
     assert(isValidPassword(password),
         "You provided an invalid user password, password must has at least on character and its lenth > 6.");
     assert(isValidEmail(email), "You should provide a valid user E-mail.");
     try {
-      UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      return await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return userCredential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         throw WeakPasswordException();
@@ -80,16 +77,15 @@ class AuthController extends ChangeNotifier {
   ///- `isValidPassword(String)`.
   ///- `isValidEmail(String)`.
   ///
-  Future<UserCredential?> loginUser(String email, String password) async {
-    // assert(isValidPassword(password),
-    //     "You provided an invalid user password, password must has at least on character and its lenth > 6.");
+  Future<User?> loginUser(String email, String password) async {
+    assert(isValidPassword(password),
+        "You provided an invalid user password, password must has at least on character and its lenth > 6.");
     assert(isValidEmail(email), "You should provide a valid user E-mail.");
     try {
-      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+      return await _auth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
-      return userCredential;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         throw WeakPasswordException();
@@ -101,8 +97,8 @@ class AuthController extends ChangeNotifier {
 
   //? Logout user
   ///Signs out the current user.
-  Future<void> logout() async {
-    return await FirebaseAuth.instance.signOut();
+  Future<void> logout() {
+    return _auth.signOut();
   }
 
   //? Get current user data
