@@ -55,9 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
     setState(() => _isLoading = true);
     try {
-      final _userCred = await AuthController.get(context).loginUser(_email, _password);
+      final _user = await AuthController.get(context).loginUser(_email, _password);
 
-      log("USER LOGGED IN with ${_userCred?.user?.email ?? "NULL EMAIL"}");
+      log("USER LOGGED IN with ${_user?.email ?? "NULL EMAIL"}");
 
       Navigator.pushAndRemoveUntil(
         context,
@@ -88,6 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextFormField(
+                      key: WidgetTestKeys.loginEmailField,
                       controller: _emailTextController,
                       keyboardType: TextInputType.emailAddress,
                       autocorrect: false,
@@ -103,6 +104,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                     ),
                     TextFormField(
+                      key: WidgetTestKeys.loginPasswordField,
                       controller: _passwordTextController,
                       keyboardType: TextInputType.visiblePassword,
                       autocorrect: false,
@@ -111,9 +113,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         labelText: "Password",
                       ),
                       validator: (password) {
-                        // if (!isValidPassword(password)) {
-                        //   return "Please, Type a valid password";
-                        // }
+                        if (!isValidPassword(password)) {
+                          return "Please, Type a valid password";
+                        }
                         return null;
                       },
                     ),
