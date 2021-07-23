@@ -2,8 +2,6 @@
 
 A new simple Flutter project.
 
-> run: `flutter packages pub run build_runner build` to generate the required files.
-
 ## Features
 * Login (Firebase).
 * Register.
